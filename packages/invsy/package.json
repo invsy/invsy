@@ -1,0 +1,33 @@
+{
+  "name": "invsy",
+  "description": "Effortlessly manage chat history with Vercel AI SDK.",
+  "type": "module",
+  "version": "1.0.13",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/invsy/invsy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/invsy/invsy/issues"
+  },
+  "author": "Charl Kruger",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist && tsup src/index.ts --dts --sourcemap --format esm --target es2020"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [
+    "ai",
+    "vercel",
+    "sdk",
+    "provider",
+    "chat"
+  ]
+}
