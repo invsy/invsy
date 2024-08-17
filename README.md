@@ -1,4 +1,4 @@
-# Invsy SDK 💬
+# Invsy SDK ⚡💬
 
 Effortlessly manage chat history with the [Vercel AI SDK](https://sdk.vercel.ai/).
 
