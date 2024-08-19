@@ -1,3 +1,5 @@
+import type { CoreMessage } from 'ai';
+
 interface ResponseError {
 	code: number;
 	message: string;
@@ -13,19 +15,9 @@ export interface ApiResponse<T> {
 export interface Chat {
 	id: string;
 	user_id: string;
+	messages: CoreMessage[];
 	meta: Record<string, string>;
-	project_id: string;
-	created_at?: string;
-	messages: Message[];
-}
-
-export type MessageRoles = "function" | "user" | "assistant" | "tool" | "system" | "data";
-
-export interface Message {
-	id: string;
-	role: MessageRoles;
-	content: string;
-	created_at: string;
+	created_at?: Date;
 }
 
 class Invsy {
@@ -77,7 +69,7 @@ class Invsy {
 	 * @param meta - Metadata for the chat.
 	 * @returns The created chat.
 	 */
-	async create(meta: Record<string, string | number>): Promise<Chat> {
+	async new(meta: Record<string, string | number>): Promise<Chat> {
 		return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats`, {
 			method: 'POST',
 			body: JSON.stringify(meta),
@@ -86,12 +78,12 @@ class Invsy {
 	}
 
 	/**
-	 * Modifies an existing chat.
+	 * Modifies an existing chat's meta.
 	 * @param chatId - The ID of the chat to modify.
 	 * @param meta - Metadata for the chat.
 	 * @returns The modified chat.
 	 */
-	async modify(chatId: string, meta: Record<string, string | number>): Promise<Chat> {
+	async updateMeta(chatId: string, meta: Record<string, string | number>): Promise<Chat> {
 		return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats/${chatId}`, {
 			method: 'PATCH',
 			body: JSON.stringify(meta),
@@ -104,7 +96,7 @@ class Invsy {
 	 * @param chatId - The ID of the chat to retrieve.
 	 * @returns The chat.
 	 */
-	async retrieve(chatId: string): Promise<Chat> {
+	async get(chatId: string): Promise<Chat> {
 		return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats/${chatId}`, {
 			method: 'GET',
 		});
@@ -122,15 +114,15 @@ class Invsy {
 
 	/**
 	 * Updates a chat with a new message.
-	 * @param chatId - The ID of the chat to update.
-	 * @param message - The message to add to the chat.
 	 * @returns The updated chat.
+	 * @param chat
 	 */
-	async update(chatId: string, message: { role: MessageRoles; content: string }): Promise<Chat> {
-		return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats/${chatId}`, {
-			method: 'PUT',
-			body: JSON.stringify(message),
-		});
+
+	async save(chat: Chat): Promise<Chat> {
+			return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats/${chat.id}`, {
+				method: 'PUT',
+				body: JSON.stringify(chat),
+			})
 	}
 
 	/**

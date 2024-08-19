@@ -9,7 +9,7 @@ npm add invsy
 ```
 
 ## Examples
-Coming soon!
+Coming soon (18-Aug-2024)! 
 
 ## Usage
 To use the Invsy SDK, you need to create an account on [Invsy](https://dash.invsy.com/). Once you have created an account, you will be able to create a new project and get the API keys.

@@ -1,4 +1,9 @@
-# Invsy SDK 💬
+<h1 align="center"> ✨ invsy </h1>
+<section align="center" id="shieldio-badges">
+<a href="https://www.npmjs.com/package/invsy"><img alt="npm"  src="https://img.shields.io/npm/dw/invsy?style=flat-square"></a>
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/invsy/invsy?style=flat-square">
+<img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/w/invsy/invsy/main?style=flat-square">
+</section>
 
 Effortlessly manage chat history with the [Vercel AI SDK](https://sdk.vercel.ai/).
 
@@ -9,13 +14,14 @@ npm add invsy
 ```
 
 ## Examples
-Coming soon!
+- Basic chatbot - coming soon!
+- [Next.js AI Chatbot with tool calls and React Server Components](https://github.com/invsy/invsy-nextjs-example)
 
 ## Usage
 To use the Invsy SDK, you need to create an account on [Invsy](https://dash.invsy.com/). Once you have created an account, you will be able to create a new project and get the API keys.
 
 ### Server
-
+To be used with your project's secret key. Never expose this key to the client.
 ```javascript
 import { InvsyServer } from 'invsy';
 
@@ -27,7 +33,7 @@ export const invsy = new InvsyServer(
 ```
 
 ### Client
-
+To be used with your project's public key. This key can be exposed to the client as it is whitelisted against a hostname.
 ```javascript
 import { InvsyClient } from 'invsy';
 
@@ -38,93 +44,56 @@ export const invsy = new InvsyServer(
 )
 ```
 
-### Create a new chat
+### Creates a new chat.
 
 ```javascript
-const createChat = async () => {
-	try {
-		// create a new chat and get the id
-		const { id } = await invsy.create({
-			title: 'New chat',
-			path: '/',
-			share_path: '/'
-		})
-	} catch (error) {
-		console.error(error)
-	}	
-}
-```
-
-### Get all chats for user
-
-```javascript
-const getChatHistory = async () => {
-    try {
-        const history = await invsy.list()
-    } catch (error) {
-        console.error(error)
-    }	
-}
+const { id } = await invsy.new({
+    title: 'New chat',
+    path: '/',
+    share_path: '/'
+})
 ```
 
 ### Get chat by id
 
 ```javascript
-const getChatById = async (id) => {
-    try {
-        const chat = await invsy.retrieve(id)
-    } catch (error) {
-        console.error(error)
-    }	
-}
+await invsy.get(id)
 ```
 
-### Update chat
+### Lists all chats for the current user and project.
 
 ```javascript
-const updateChat = async (id) => {
-    try {
-        const chat = await invsy.modify(id, {
-            some_meta: 'Updated meta'
-        })
-    } catch (error) {
-        console.error(error)
-    }	
-}
+await invsy.list()
 ```
 
-### Add message to chat
+### Get chat by id
 
 ```javascript
-const addMessage = async (id, message) => {
-    try {
-        const message = await invsy.update(id, message)
-    } catch (error) {
-        console.error(error)
-    }	
-}
+const chat = await invsy.retrieve(id)
 ```
 
-### Delete chat
+### Modifies an existing chat's meta
 
 ```javascript
-const deleteChat = async (id) => {
-    try {
-        await invsy.delete(id)
-    } catch (error) {
-        console.error(error)
-    }	
-}
+const chat = await invsy.updateMeta(id, {
+    some_meta: 'Updated meta'
+})
+```
+
+### Save chat with messages
+
+```javascript
+await invsy.save(chat)
+```
+
+### Delete chat by id
+
+```javascript
+await invsy.delete(id)
 ```
 
 ## Delete all chats
 
 ```javascript
-const deleteAllChats = async () => {
-    try {
-        await invsy.deleteAll()
-    } catch (error) {
-        console.error(error)
-    }	
-}
+await invsy.deleteAll()
 ```
