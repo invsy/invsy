@@ -11,7 +11,7 @@ hero:
       text: Get started
       link: /getting-started
     - theme: alt
-      text: Benefits
+      text: Guides
       link: /guides/basic-nextjs-ai-chat.html
 ---
 

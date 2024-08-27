@@ -4,7 +4,7 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Invsy",
+  title: "Invsy (beta)",
   description: "A VitePress Site",
   themeConfig: {
     search: {
@@ -13,7 +13,9 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'SDK', link: '/sdk/create-client' },
-      { text: 'Dashboard', link: 'https://dash.invsy.com', target: '_blank' }
+      { text: 'Guides', link: '/guides/basic-nextjs-ai-chat' },
+      { text: 'Pricing', link: '/pricing' },
+      { text: 'Sign up / Login', link: 'https://dash.invsy.com', target: '_blank' }
     ],
 
     sidebar: [
@@ -40,6 +42,13 @@ export default defineConfig({
           { text: 'List chats', link: '/sdk/list-chats' },
           { text: 'Delete chat', link: '/sdk/delete-chat' },
           { text: 'Delete all chats', link: '/sdk/delete-all-chats' },
+        ]
+      },
+      {
+        text: "Snippets",
+        items: [
+          { text: "Next.js with CLerk", link: "/snippets/nextjs-with-clerk" },
+          { text: "Cloudflare Worker cxt.env", link: "/snippets/cloudflare-worker" }
         ]
       }
     ],
