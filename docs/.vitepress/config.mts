@@ -7,6 +7,9 @@ export default defineConfig({
   title: "Invsy",
   description: "A VitePress Site",
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'SDK', link: '/sdk/create-client' },
@@ -37,13 +40,6 @@ export default defineConfig({
           { text: 'List chats', link: '/sdk/list-chats' },
           { text: 'Delete chat', link: '/sdk/delete-chat' },
           { text: 'Delete all chats', link: '/sdk/delete-all-chats' },
-        ]
-      },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
         ]
       }
     ],

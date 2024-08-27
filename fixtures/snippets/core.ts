@@ -2,7 +2,7 @@
 import { Invsy } from "invsy"
 
 export const invsy = new Invsy({
-    token: 'INVSY_API_KEY!',
+    token: 'INVSY_API_KEY',
     projectId: 'INVSY_PROJECT_ID',
     userId: "user1"
 })
@@ -31,12 +31,12 @@ const messages = [
         role: 'assistant',
         content: 'Hello, welcome to Invsy!'
     }
-]
+];
 // Update meta title, use the first message as the chat title
 const title = chat.messages[0].content.substring(0, 100);
 
 const updatedChat = await invsy.save({
-        meta: {
+    meta: {
         title
     },
     messages

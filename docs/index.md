@@ -13,13 +13,5 @@ hero:
     - theme: alt
       text: Benefits
       link: /guides/basic-nextjs-ai-chat.html
-
-features:
-  - title: Managed storage
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Sentiment analysis
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Conversation search (RAG)
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 

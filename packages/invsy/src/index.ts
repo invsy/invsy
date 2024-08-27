@@ -69,7 +69,7 @@ class Invsy {
 	 * @param meta - Metadata for the chat.
 	 * @returns The created chat.
 	 */
-	async new(meta: Record<string, string | number>): Promise<Chat> {
+	async create(meta: Record<string, string | number>): Promise<Chat> {
 		return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats`, {
 			method: 'POST',
 			body: JSON.stringify(meta),
@@ -119,10 +119,10 @@ class Invsy {
 	 */
 
 	async save(chat: Chat): Promise<Chat> {
-			return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats/${chat.id}`, {
-				method: 'PUT',
-				body: JSON.stringify(chat),
-			})
+		return this.request<Chat>(`${this.baseURL}/projects/${this.projectId}/users/${this.userId}/chats/${chat.id}`, {
+			method: 'PUT',
+			body: JSON.stringify(chat),
+		})
 	}
 
 	/**

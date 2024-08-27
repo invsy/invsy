@@ -2,7 +2,7 @@
   "name": "invsy",
   "description": "Effortlessly manage chat history with Vercel AI SDK.",
   "type": "module",
-  "version": "1.0.18",
+  "version": "1.0.27",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
