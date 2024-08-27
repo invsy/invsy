@@ -1,0 +1,1 @@
+Please see http://docs.invsy.com/guides/basic-nextjs-ai-chat
