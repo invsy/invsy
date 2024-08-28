@@ -4,8 +4,8 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Invsy (beta)",
-  description: "A VitePress Site",
+  title: "Invsy",
+  description: "Store, retrieve and optimize your AI conversations",
   themeConfig: {
     search: {
       provider: 'local'
@@ -15,7 +15,7 @@ export default defineConfig({
       { text: 'SDK', link: '/sdk/create-client' },
       { text: 'Guides', link: '/guides/basic-nextjs-ai-chat' },
       { text: 'Pricing', link: '/pricing' },
-      { text: 'Sign up / Login', link: 'https://dash.invsy.com', target: '_blank' }
+      { text: 'Sign in ⚡', link: 'https://dash.invsy.com', target: '_blank' }
     ],
 
     sidebar: [
